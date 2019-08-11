@@ -4,24 +4,35 @@
   "main": "dist/src/index.js",
   "license": "Unlicense",
   "scripts": {
-    "clean": "shx rm -rf ./dist",
     "build": "tsc",
+    "clean": "shx rm -rf ./dist",
+    "lint": "eslint .",
     "start": "tsc && node ./dist/index.js",
     "test": "jest",
     "watch": "tsc && nodemon"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
     "@types/jest": "^24.0.17",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.3",
     "jest": "^24.8.0",
     "nodemon": "^1.19.1",
     "prettier": "^1.18.2",
     "shx": "^0.3.2",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
