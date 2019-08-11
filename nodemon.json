@@ -3,5 +3,5 @@
     "src"
   ],
   "ext": "ts",
-  "exec": "node ./dist/index.js"
+  "exec": "tsc && node ./dist/index.js"
 }
