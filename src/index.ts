@@ -1,4 +1,4 @@
-import { isPrimeNumber } from "./prime";
+import { isPrimeNumber } from './prime';
 
 const n = Math.floor(Math.random() * 1000);
 if (isPrimeNumber(n)) {
